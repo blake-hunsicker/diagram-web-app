@@ -1,3 +1,3 @@
-#### Diagram
+## Diagram
 
-A minimalistic news summary app that runs on GPT-3.
+A minimal news summary app that runs on GPT-3 ✨
