@@ -12,6 +12,7 @@ const firebaseConfig = {
 
 try {
   firebase.initializeApp(firebaseConfig);
+  firebase.firestore.settings({ experimentalForceLongPolling: true })
   // firebase.analytics();
 } catch(err){
   if (!/already exists/.test(err.message)) {
