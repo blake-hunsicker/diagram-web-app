@@ -77,4 +77,27 @@ footer {
   padding: 1rem 2rem;
   margin: 4rem 0 0;
 }
+
+@media only screen and (max-width: 768px) {
+  main .hero {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 16;
+    grid-column: 1 / 17;
+    margin: 2rem 1rem 3rem;
+  }
+  main .summary {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 16;
+    grid-column: 1 / 17;
+    margin: 1rem 1rem 1.5rem;
+  }
+  main .pagination {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 16;
+    grid-column: 1 / 17;
+  }
+  footer {
+    padding: 1rem;
+  }
+}
 /*# sourceMappingURL=globals.css.map */
