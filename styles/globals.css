@@ -1,36 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;600;700;900&display=swap");
 html, body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: #22181C;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-html main, body main {
+h1, h2, h3, h4, h5, h6 {
+  margin: 1rem 0;
+}
+
+h1 {
+  font-family: 'Noto Serif KR';
+  font-size: 4rem;
+  letter-spacing: -0.1rem;
+  font-weight: 900;
+}
+
+h4 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+main {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[16];
       grid-template-columns: repeat(16, 1fr);
 }
 
-html main .hero, body main .hero {
+main .hero {
   -ms-grid-column: 5;
   -ms-grid-column-span: 8;
   grid-column: 5 / 13;
+  text-align: center;
+  margin: 2rem 0 3rem;
 }
 
-html main .summary, body main .summary {
+main .hero h1 {
+  background: -webkit-linear-gradient(#777, #22181C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main .summary {
   -ms-grid-column: 5;
   -ms-grid-column-span: 8;
   grid-column: 5 / 13;
+  margin: 0 0 1.5rem;
 }
 
-html main .pagination, body main .pagination {
+main .summary h3 {
+  font-family: 'Inter';
+  font-weight: 700;
+}
+
+main .summary ul {
+  padding: 0.6rem 1.2rem;
+}
+
+main .summary ul li {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  margin: 0;
+}
+
+main .pagination {
   -ms-grid-column: 5;
   -ms-grid-column-span: 8;
   grid-column: 5 / 13;
-  margin: 2rem auto 0;
+  margin: 4rem auto 0;
 }
 
-html footer, body footer {
+footer {
   padding: 1rem 2rem;
+  margin: 4rem 0 0;
 }
 /*# sourceMappingURL=globals.css.map */

@@ -14,29 +14,39 @@ const Home = (props) => {
       const summaries = documentSnapshots.docs.map(doc => ({
         id: doc.id,
         trend: doc.data().trend,
-        summary: doc.data().summary.replaceAll("- ", '\n - ').replaceAll('* ', '\n - ')
+        summary: doc.data().summary.replaceAll('- ', '\n - ').replaceAll('* ', '\n - '),
+        articles: doc.ref.collection('articles').onSnapshot((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            hed: doc.data().headline
+          })
+        }),
       }))
       setSummaries(summaries)
     })
   }, [props])
 
-  
+  console.log(summaries)
 
   return (
     <>
       <section className='hero'>
         <h1>Diagram News</h1>
-        <p>A minimalistic news summary app that runs on GPT-3.</p>
+        <h4>Minimal news summaries written by journalists and AI.</h4>
       </section>    
-      <section className='summary'>
         {summaries.map(summary =>
           <>
-            <h3>{summary.trend}</h3>
-            <ReactMarkdown>{summary.summary}</ReactMarkdown>
-            <button>Go deeper</button>
-          </>  
+            <section className='summary'>
+              <h3>{summary.trend}</h3>
+              <ReactMarkdown>{summary.summary}</ReactMarkdown>
+              <button>Go deeper</button>
+            </section>
+            <div className='context-card'>
+              {/* {summary.articles.map(article =>
+                <p>{article.headline}</p>
+              )} */}
+            </div>
+          </> 
         )}
-      </section>
       <button className='pagination'>Read Yesterday's Stories</button>
     </>
   )
