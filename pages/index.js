@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import moment from 'moment'
 
 
-const Home = (props) => {
+const Home = () => {
   const [summaries, setSummaries] = useState([])
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Home = (props) => {
       }))
       setSummaries(summaries)
     })
-  }, [props])
+  }, [])
 
   console.log(summaries)
 
