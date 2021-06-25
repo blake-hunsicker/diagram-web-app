@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import fire from '../config/fire-config'
+import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 import moment from 'moment'
 
@@ -42,6 +43,20 @@ const Home = () => {
 
   return (
     <>
+      <Head>
+        <title>Diagram</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta itemprop='description' content='Minimal news summaries.' />
+
+        <meta property='og:url' content='https://www.diagram.news' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='Diagram' />
+        <meta property='og:description' content='Minimal news summaries.' />
+
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:title' content='Diagram' />
+        <meta name='twitter:description' content='Minimal news summaries.' />
+      </Head>
       <section className='hero'>
         <h1>Diagram News</h1>
         <h4>Minimal news summaries written by journalists and <a href='https://beta.openai.com/'>GPT-3</a></h4>
