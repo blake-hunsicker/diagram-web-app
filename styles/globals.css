@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;600;700;900&display=swap");
 html, body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  color: #22181C;
   padding: 0;
   margin: 0;
 }
@@ -22,6 +21,10 @@ h4 {
   font-weight: 400;
 }
 
+.hidden {
+  display: none;
+}
+
 main {
   display: -ms-grid;
   display: grid;
@@ -37,17 +40,17 @@ main .hero {
   margin: 2rem 0 3rem;
 }
 
-main .hero h1 {
-  background: -webkit-linear-gradient(#777, #22181C);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 main .summary {
   -ms-grid-column: 5;
   -ms-grid-column-span: 8;
   grid-column: 5 / 13;
-  margin: 0 0 1.5rem;
+  padding: 2rem 2rem 3rem;
+  border: 1px solid black;
+  margin: 0 0 4rem;
+}
+
+main .summary h4.headline {
+  font-weight: 700;
 }
 
 main .summary h3 {
@@ -64,6 +67,16 @@ main .summary ul li {
   font-size: 1.25rem;
   line-height: 2rem;
   margin: 0;
+}
+
+main .summary button.context-button {
+  padding: 1rem 1.6rem;
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-box-shadow: 0 8px 16px 0 rgba(249, 179, 199, 0.4);
+          box-shadow: 0 8px 16px 0 rgba(249, 179, 199, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 0.2rem;
 }
 
 main .pagination {
@@ -89,7 +102,8 @@ footer {
     -ms-grid-column: 1;
     -ms-grid-column-span: 16;
     grid-column: 1 / 17;
-    margin: 1rem 1rem 1.5rem;
+    padding: 1rem 1.5rem 1.5rem;
+    margin: 1rem 0.5rem 1.5rem;
   }
   main .pagination {
     -ms-grid-column: 1;
