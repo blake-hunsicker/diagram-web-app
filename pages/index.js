@@ -13,8 +13,7 @@ const Home = () => {
   
   useEffect(() => {
     
-    const trendQuery = fire.firestore().collection('trends').where(fire.firestore.FieldPath.documentId(), '>=', today)
-    const yesterdayQuery = fire.firestore().collection('trends').where(fire.firestore.FieldPath.documentId(), '>=', yesterday).where(fire.firestore.FieldPath.documentId(), '<=', today)
+    const trendQuery = fire.firestore().collection('trends').where(fire.firestore.FieldPath.documentId(), '>=', yesterday)
     const articleQuery = fire.firestore().collection('articles')
 
     trendQuery.get().then((documentSnapshots) => {
