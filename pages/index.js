@@ -13,7 +13,7 @@ const Home = () => {
   
   useEffect(() => {
     
-    const trendQuery = fire.firestore().collection('trends').where(fire.firestore.FieldPath.documentId(), '>=', yesterday)
+    const trendQuery = fire.firestore().collection('trends').where(fire.firestore.FieldPath.documentId(), '>=', '06-25-2021')
     const articleQuery = fire.firestore().collection('articles')
 
     trendQuery.get().then((documentSnapshots) => {
@@ -60,9 +60,10 @@ const Home = () => {
         <h1>Diagram News</h1>
         <h4>Minimal news summaries written by journalists and <a href='https://beta.openai.com/'>GPT-3</a></h4>
       </section>
+      <h4 className='date'>The news for Friday, June 25</h4>
       {summaries.map(summary =>
         <section className='summary'>
-          <h4 className='headline'>{summary.trend}</h4>
+          <h4 className='headline'>{summary.title}</h4>
           <ReactMarkdown>{summary.summary.replaceAll('- ', '\n - ').replaceAll('* ', '\n - ')}</ReactMarkdown>
           <button onClick={toggleContext}>View sources</button>
           <div className='context hidden'>

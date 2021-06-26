@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;600;700;900&display=swap");
 html, body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: #070707;
+  background: #f9f9f9;
   padding: 0;
   margin: 0;
 }
@@ -40,12 +42,25 @@ main .hero {
   margin: 2rem 0 3rem;
 }
 
+main .date {
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 8;
+  grid-column: 5 / 13;
+  color: #797270;
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
 main .summary {
   -ms-grid-column: 5;
   -ms-grid-column-span: 8;
   grid-column: 5 / 13;
   padding: 2rem 2rem 3rem;
-  border: 1px solid black;
+  border-width: 2px;
+  border-color: #797270;
+  border-style: outset;
+  border-radius: 0.2rem;
+  background: #fff;
   margin: 0 0 4rem;
 }
 
@@ -69,14 +84,31 @@ main .summary ul li {
   margin: 0;
 }
 
-main .summary button.context-button {
-  padding: 1rem 1.6rem;
-  background: rgba(255, 255, 255, 0.25);
-  -webkit-box-shadow: 0 8px 16px 0 rgba(249, 179, 199, 0.4);
-          box-shadow: 0 8px 16px 0 rgba(249, 179, 199, 0.4);
-  backdrop-filter: blur(5px);
+main .summary button {
+  color: #070707;
+  padding: 1rem 1rem;
+  -webkit-box-shadow: 0 0 16px 0 rgba(249, 179, 199, 0.4);
+          box-shadow: 0 0 16px 0 rgba(249, 179, 199, 0.4);
   -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-color: #797270;
+  border-style: outset;
   border-radius: 0.2rem;
+  background: #f9f9f9;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
+}
+
+main .summary button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 16px 0 rgba(249, 179, 199, 0.8);
+          box-shadow: 0 0 16px 0 rgba(249, 179, 199, 0.8);
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
 }
 
 main .pagination {
@@ -96,7 +128,13 @@ footer {
     -ms-grid-column: 1;
     -ms-grid-column-span: 16;
     grid-column: 1 / 17;
-    margin: 2rem 1rem 3rem;
+    margin: 2rem 0.8rem 3rem;
+  }
+  main .date {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 16;
+    grid-column: 1 / 17;
+    margin: 0 0 1rem;
   }
   main .summary {
     -ms-grid-column: 1;
