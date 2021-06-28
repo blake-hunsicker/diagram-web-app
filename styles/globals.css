@@ -2,7 +2,7 @@
 html, body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: #070707;
-  background: #f9f9f9;
+  background: radial-gradient(to top, rgba(125, 97, 255, 0.4), #070707), #070707;
   padding: 0;
   margin: 0;
 }
@@ -13,14 +13,20 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-family: 'Noto Serif KR';
+  color: #f9f9f9;
   font-size: 4rem;
   letter-spacing: -0.1rem;
   font-weight: 900;
 }
 
 h4 {
+  color: #f9f9f9;
   font-size: 1.2rem;
   font-weight: 400;
+}
+
+h4 a {
+  color: #f9f9f9;
 }
 
 .hidden {
@@ -43,10 +49,11 @@ main .hero {
 }
 
 main .date {
+  font-weight: 900;
   -ms-grid-column: 5;
   -ms-grid-column-span: 8;
   grid-column: 5 / 13;
-  color: #797270;
+  color: #BCD3F2;
   text-align: center;
   margin: 0 0 2rem;
 }
@@ -56,11 +63,9 @@ main .summary {
   -ms-grid-column-span: 8;
   grid-column: 5 / 13;
   padding: 2rem 2rem 3rem;
-  border-width: 2px;
-  border-color: #797270;
-  border-style: outset;
+  border: 2px solid #070707;
   border-radius: 0.2rem;
-  background: #fff;
+  background: #f9f9f9;
   margin: 0 0 4rem;
 }
 
@@ -71,7 +76,7 @@ main .summary h5.pinned-icon {
 }
 
 main .summary h4.headline {
-  font-weight: 700;
+  font-weight: 800;
 }
 
 main .summary h3 {

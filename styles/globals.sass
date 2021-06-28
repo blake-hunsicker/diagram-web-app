@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;600;700;900&display=swap')
 
 $coal: #070707
+$slate: #7b61ff
+$lightSteelBlue: #BCD3F2
 $ceruleanBlue: #3454D1
 $opaqueCeruleanBlue: rgba(52,84,209,0.5)
 $sonicSilver: #797270
@@ -11,20 +13,24 @@ $roundedCorners: 0.2rem
 html, body
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
   color: $coal
-  background: $cultured
+  background: radial-gradient(to top, rgba(125, 97, 255, 0.4), rgba(7, 7, 7, 1.0)), #070707
   padding: 0
-  // background: radial-gradient(rgba(212, 183, 245, 0.4) 0%, rgba(255,255,255, 0.2) 100%), rgb(255,255,255)
+  // background: radial-gradient(rgba(212, 183, 245, 0.4) 0%, #07050533 100%), rgb(255,255,255)
   margin: 0
 h1, h2, h3, h4, h5, h6
   margin: 1rem 0
 h1
   font-family: 'Noto Serif KR'
+  color: $cultured
   font-size: 4rem
   letter-spacing: -0.1rem
   font-weight: 900
 h4
+  color: $cultured
   font-size: 1.2rem
   font-weight: 400
+  a
+    color: $cultured
 .hidden
   display: none
 main
@@ -37,25 +43,24 @@ main
     h1
       // color: #fff
   .date
+    font-weight: 900
     grid-column: 5 / 13
-    color: $sonicSilver
+    color: $lightSteelBlue
     text-align: center
     margin: 0 0 2rem
   .summary
     grid-column: 5 / 13
     padding: 2rem 2rem 3rem
-    border-width: 2px
-    border-color: $sonicSilver
-    border-style: outset
+    border: 2px solid $coal
     border-radius: $roundedCorners
-    background: #fff
+    background: $cultured
     margin: 0 0 4rem
     h5.pinned-icon
       color: $sonicSilver
       font-weight: 400
       margin: 0 0 1rem 
     h4.headline
-      font-weight: 700  
+      font-weight: 800 
     h3
       font-family: 'Inter'
       font-weight: 700
