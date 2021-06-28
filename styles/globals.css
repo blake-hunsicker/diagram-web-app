@@ -64,6 +64,12 @@ main .summary {
   margin: 0 0 4rem;
 }
 
+main .summary h5.pinned-icon {
+  color: #797270;
+  font-weight: 400;
+  margin: 0 0 1rem;
+}
+
 main .summary h4.headline {
   font-weight: 700;
 }
