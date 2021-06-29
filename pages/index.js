@@ -42,7 +42,7 @@ const Home = () => {
         const summary = doc.data().summary.replaceAll('- ', '\n - ').replaceAll('* ', '\n - ')
         const title = doc.data().title
         const timestamp = doc.data().timestamp.toDate()
-        const momentified = moment(timestamp)
+        const momentified = moment.utc(timestamp)
         const formattedDate = momentified.format('MM-D-YY')
         const pinned = doc.data().pinned
 
@@ -76,7 +76,7 @@ const Home = () => {
 
       setSummaries(allSummaries)
 
-      const momentifyDay = moment(days[0].toString())
+      const momentifyDay = moment.utc(days[0].toString())
       const formattedDay = momentifyDay.format('MMMM Do YYYY')
       setLatestDay(formattedDay)
       console.log(formattedDay)

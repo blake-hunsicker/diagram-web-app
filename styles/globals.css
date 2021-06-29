@@ -3,6 +3,7 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: #070707;
   padding: 0;
+  background: radial-gradient(to top, rgba(52, 84, 209, 0.3) 0%, #07050533 100%), #070707;
   margin: 0;
 }
 
