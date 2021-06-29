@@ -37,7 +37,7 @@ const Home = () => {
         const title = doc.data().title
         const timestamp = doc.data().timestamp.toDate()
         const momentified = moment.utc(timestamp)
-        const displayDate = momentified.format('MMMM Do YYYY')
+        const displayDate = momentified.format('MMMM Do, YYYY')
         const pinned = doc.data().pinned
 
         days.push(displayDate)
@@ -97,14 +97,14 @@ const Home = () => {
         <meta name='twitter:description' content='Minimal news summaries.' />
       </Head>
       <section className='hero'>
-      <div className='logo'>Diagram</div>
+        <h1>All the News You Need to Know Today</h1>
         <div className='value-prop'>
           <p className='info-pill'>Today's 3-5 Most Important News Events ☕️</p>
           <p className='info-pill'>5 Minute Reading Time ⚡️</p>
           <p className='info-pill'>Written by journalists and <a href='https://beta.openai.com/'>GPT-3</a> 🤖</p>
         </div>
       </section>
-      <h3 className='date'>{latestDay}</h3>
+      <h4 class='date'>{latestDay}</h4>
       {summaries}
     </>
   )

@@ -5,6 +5,7 @@ $darkPurple: #160F29
 $slate: #7b61ff
 $lightSteelBlue: #BCD3F2
 $ceruleanBlue: #3454D1
+$seaGreen: #3BB273
 $opaqueCeruleanBlue: rgba(52,84,209,0.3)
 $sonicSilver: #ccc
 $cultured: #f9f9f9
@@ -15,7 +16,6 @@ html, body
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
   background: #070707
   padding: 0
-  background: radial-gradient(to top, $opaqueCeruleanBlue 0%, #07050533 100%), #070707
   margin: 0
 h1, h2, h3, h4, h5, h6
   margin: 1rem 0
@@ -26,8 +26,8 @@ h1
   font-size: 3.2rem
   letter-spacing: -0.1rem
   font-weight: 900
+h2
 h3
-  // font-family: 'Noto Serif KR'
   font-family: Inter
   color: $cultured
   font-size: 2.4rem
@@ -48,27 +48,28 @@ main
     color: $cultured
     grid-column: 1 / 17
     text-align: center
-    padding: 1rem 0
+    padding: 1rem
     margin: 0rem 0 3rem
-    .value-prop
-      grid-column: 1 / 9
-      display: flex
-      justify-content: center
-      margin: 0 auto
-      .info-pill
-        align-self: center
-        width: fit-content
-        padding: 0.6rem
+  .value-prop
+    grid-column: 1 / 9
+    display: flex
+    justify-content: center
+    margin: 0 auto
+    .info-pill
+      white-space: nowrap
+      align-self: center
+      width: fit-content
+      padding: 0.6rem
+      color: #BCD3F2
+      background: #171A21
+      // border: 1px solid #3BB273
+      border-radius: 0.2rem
+      a
         color: #BCD3F2
-        background: #171A21
-        // border: 1px solid #3BB273
-        border-radius: 0.2rem
-        a
-          color: #BCD3F2
-      .info-pill:nth-of-type(even)
-        margin-left: 1rem
-        margin-right: 1rem
-        height: fit-content
+    .info-pill:nth-of-type(even)
+      margin-left: 1rem
+      margin-right: 1rem
+      height: fit-content
     .nav-bar-button
       grid-column: 1
       width: fit-content
@@ -78,23 +79,25 @@ main
       background: #171A21
       margin: 0 auto
   .date
-    font-weight: 900
+    color: #555
     grid-column: 5 / 13
     text-align: center
     margin: 0 0 2rem
   .summary
     grid-column: 5 / 13
-    padding: 3rem 2rem 3rem
-    border-radius: $roundedCorners
-    color: #BCD3F2
-    background: #171A21
-    border: 2px solid #3BB273
+    padding: 2rem
+    border-radius: 0.4rem
+    color: $lightSteelBlue
+    background: $coal
+    border: 2px solid $lightSteelBlue
     margin: 0 0 4rem
     h5.pinned-icon
       color: #ccc
       font-weight: 400
       margin: 0 0 1.5rem 
-    h4.headline
+    .headline
+      color: $cultured
+      font-fize: 2.8rem
       font-weight: 800 
     h3
       font-family: 'Inter'
@@ -122,10 +125,23 @@ main
     grid-column: 5 / 13
     margin: 4rem auto 0
 footer
+  color: $lightSteelBlue
   padding: 1rem 2rem
   margin: 4rem 0 0
+  a
+    color: $lightSteelBlue
 
 @media only screen and (max-width: 768px)
+
+  $duration: 5s
+  @keyframes ticker
+    0%
+      -webkit-transform: translate3d(0, 0, 0)
+      transform: translate3d(0, 0, 0)
+      visibility: visible
+    100% 
+      -webkit-transform: translate3d(-100%, 0, 0)
+      transform: translate3d(-100%, 0, 0)
 
   main
     .hero
@@ -134,6 +150,8 @@ footer
       .value-prop
         flex-direction: column
         .info-pill
+          width: fit-content
+          white-space: nowrap
           margin: 1rem 0 0
     .date
       grid-column: 1 / 17
