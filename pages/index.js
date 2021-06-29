@@ -27,7 +27,7 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    const trendQuery = fire.firestore().collection('trends').orderBy('pinned','desc').orderBy('timestamp','desc')
+    const trendQuery = fire.firestore().collection('trends').orderBy('timestamp','desc')
     trendQuery.onSnapshot(snapshot => {
       const allSummaries = []
       snapshot.forEach(function(doc) {
