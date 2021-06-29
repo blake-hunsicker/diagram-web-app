@@ -162,10 +162,11 @@ main .summary ul a {
 }
 
 main .summary button {
-  color: #888;
+  font-size: 1rem;
+  color: #ccc;
   padding: 1rem 1rem;
-  border-radius: 0.2rem;
   background: #2D3047;
+  border-radius: 0.2rem;
   border: none;
   -webkit-transition: -webkit-box-shadow 0.3s;
   transition: -webkit-box-shadow 0.3s;
@@ -175,12 +176,6 @@ main .summary button {
 
 main .summary button:hover {
   cursor: pointer;
-  -webkit-box-shadow: 0 0 16px 0 rgba(249, 179, 199, 0.8);
-          box-shadow: 0 0 16px 0 rgba(249, 179, 199, 0.8);
-  -webkit-transition: -webkit-box-shadow 0.3s;
-  transition: -webkit-box-shadow 0.3s;
-  transition: box-shadow 0.3s;
-  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
 }
 
 main .pagination {
@@ -220,7 +215,7 @@ footer {
     -ms-grid-column: 1;
     -ms-grid-column-span: 16;
     grid-column: 1 / 17;
-    padding: 1rem 1.5rem 1.5rem;
+    padding: 2rem 1.5rem 1.5rem;
     margin: 1rem 0.5rem 1.5rem;
   }
   main .pagination {
