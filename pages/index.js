@@ -22,13 +22,18 @@ const Home = () => {
     const articleQuery = fire.firestore().collection('articles')
 
     articleQuery.get().then((documentSnapshots) => {
-      const articles = documentSnapshots.docs.map((doc) => ({
+      let articles = documentSnapshots.docs.map((doc) => ({
         id: doc.id,
         ...doc.data()
       }))
       setArticles(articles)
     })
+    console.log(articles)
 
+  }, [])
+
+  useEffect(() => {
+    const trendQuery = fire.firestore().collection('trends').orderBy('pinned','desc').orderBy('timestamp','desc')
     trendQuery.onSnapshot(snapshot => {
       const allSummaries = []
       snapshot.forEach(function(doc) {
@@ -53,16 +58,13 @@ const Home = () => {
               <div className='context hidden'>
                 <p>Sources</p>
                 <ul>
-                  {trend}
                   {articles.map(article =>
-                    article.trend == trend ?
-                      (<li className='source'>
-                        <a href={article.url} target='_blank'>{article.headline.replaceAll('<b>','').replaceAll('</b>','').replaceAll('&#39;',"'")}</a>
-                      </li>  )
+                    article.trend != trend ?
+                      null
                     :
-                      (
-                        null        
-                      )
+                      <li className='source'>
+                        <a href={article.url} target='_blank'>{article.headline.replaceAll('<b>','').replaceAll('</b>','').replaceAll('&#39;',"'")}</a>
+                      </li>
                   )}
                 </ul>
               </div>
@@ -74,13 +76,12 @@ const Home = () => {
 
       setSummaries(allSummaries)
 
-      const momentifyDay = moment(days[0])
+      const momentifyDay = moment(days[0].toString())
       const formattedDay = momentifyDay.format('MMMM Do YYYY')
       setLatestDay(formattedDay)
-      
-    })
-
-  }, [])
+      console.log(formattedDay)
+  })
+}, [articles])
 
   function toggleContext(e) {
     e.preventDefault();
@@ -108,9 +109,9 @@ const Home = () => {
       <section className='hero'>
       <div className='logo'>Diagram</div>
         <div className='value-prop'>
-          <p class='info-pill'>Today's 3-5 Most Important News Events ☕️</p>
-          <p class='info-pill'>5 Minute Reading Time ⚡️</p>
-          <p class='info-pill'>Written by journalists and <a href='https://beta.openai.com/'>GPT-3</a> 🤖</p>
+          <p className='info-pill'>Today's 3-5 Most Important News Events ☕️</p>
+          <p className='info-pill'>5 Minute Reading Time ⚡️</p>
+          <p className='info-pill'>Written by journalists and <a href='https://beta.openai.com/'>GPT-3</a> 🤖</p>
         </div>
         {/* <div className='nav-bar-button'>Sign Up</div> */}
       </section>
