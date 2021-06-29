@@ -3,6 +3,7 @@ import fire from '../config/fire-config'
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 import moment from 'moment'
+import { PushPin } from 'phosphor-react'
 
 
 const Home = () => {
@@ -45,22 +46,22 @@ const Home = () => {
         days[0] == formattedDate ? 
           allSummaries.push(
             <section className='summary'>
-              {pinned ? <h5 className='pinned-icon'>📌 Developing</h5> : null}
+              {pinned ? <h5 className='pinned-icon'><PushPin size={16} weight="fill"/> Developing</h5> : null}
               <h2 className='headline'>{title}</h2>
-              {/* <p>{formattedDate}</p> */}
               <ReactMarkdown>{summary}</ReactMarkdown>
               <button onClick={toggleContext}>View sources</button>
               <div className='context hidden'>
                 <p>Sources</p>
                 <ul>
+                  {trend}
                   {articles.map(article =>
-                    article.trend != trend ?
-                      (null)
+                    article.trend == trend ?
+                      (<li className='source'>
+                        <a href={article.url} target='_blank'>{article.headline.replaceAll('<b>','').replaceAll('</b>','').replaceAll('&#39;',"'")}</a>
+                      </li>  )
                     :
                       (
-                        <li className='source'>
-                          <a href={article.url} target='_blank'>{article.headline.replaceAll('<b>','').replaceAll('</b>','').replaceAll('&#39;',"'")}</a>
-                        </li>          
+                        null        
                       )
                   )}
                 </ul>
@@ -105,10 +106,15 @@ const Home = () => {
         <meta name='twitter:description' content='Minimal news summaries.' />
       </Head>
       <section className='hero'>
-        <h1>Diagram News</h1>
-        <h4>Minimal news summaries written by journalists and <a href='https://beta.openai.com/'>GPT-3</a></h4>
+      <div className='logo'>Diagram</div>
+        <div className='value-prop'>
+          <p class='info-pill'>Today's 3-5 Most Important News Events ☕️</p>
+          <p class='info-pill'>5 Minute Reading Time ⚡️</p>
+          <p class='info-pill'>Written by journalists and <a href='https://beta.openai.com/'>GPT-3</a> 🤖</p>
+        </div>
+        {/* <div className='nav-bar-button'>Sign Up</div> */}
       </section>
-      <h2 className='date'>{latestDay}</h2>
+      <h3 className='date'>{latestDay}</h3>
       {summaries}
       {/* <button className='pagination'>Read Yesterday's Stories</button> */}
     </>

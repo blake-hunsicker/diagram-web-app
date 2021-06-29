@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;600;700;900&display=swap");
 html, body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  color: #070707;
-  background: radial-gradient(to top, rgba(125, 97, 255, 0.4), #070707), #070707;
+  background: #070707;
   padding: 0;
   margin: 0;
 }
@@ -12,9 +11,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-family: 'Noto Serif KR';
+  font-family: Inter;
   color: #f9f9f9;
-  font-size: 4rem;
+  font-size: 3.2rem;
+  letter-spacing: -0.1rem;
+  font-weight: 900;
+}
+
+h3 {
+  font-family: Inter;
+  color: #f9f9f9;
+  font-size: 2.4rem;
   letter-spacing: -0.1rem;
   font-weight: 900;
 }
@@ -41,11 +48,66 @@ main {
 }
 
 main .hero {
-  -ms-grid-column: 5;
-  -ms-grid-column-span: 8;
-  grid-column: 5 / 13;
+  color: #f9f9f9;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 16;
+  grid-column: 1 / 17;
   text-align: center;
-  margin: 2rem 0 3rem;
+  padding: 1rem 0;
+  margin: 0rem 0 3rem;
+}
+
+main .hero .value-prop {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 8;
+  grid-column: 1 / 9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+main .hero .value-prop .info-pill {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.6rem;
+  color: #BCD3F2;
+  background: #171A21;
+  border-radius: 0.2rem;
+}
+
+main .hero .value-prop .info-pill a {
+  color: #BCD3F2;
+}
+
+main .hero .value-prop .info-pill:nth-of-type(even) {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+main .hero .nav-bar-button {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.2rem;
+  background: #171A21;
+  margin: 0 auto;
 }
 
 main .date {
@@ -53,7 +115,6 @@ main .date {
   -ms-grid-column: 5;
   -ms-grid-column-span: 8;
   grid-column: 5 / 13;
-  color: #BCD3F2;
   text-align: center;
   margin: 0 0 2rem;
 }
@@ -63,14 +124,15 @@ main .summary {
   -ms-grid-column-span: 8;
   grid-column: 5 / 13;
   padding: 2rem 2rem 3rem;
-  border: 2px solid #070707;
   border-radius: 0.2rem;
-  background: #f9f9f9;
+  color: #BCD3F2;
+  background: #171A21;
+  border: 2px solid #3BB273;
   margin: 0 0 4rem;
 }
 
 main .summary h5.pinned-icon {
-  color: #797270;
+  color: #ccc;
   font-weight: 400;
   margin: 0 0 1rem;
 }
@@ -96,16 +158,11 @@ main .summary ul li {
 }
 
 main .summary button {
-  color: #070707;
+  color: #888;
   padding: 1rem 1rem;
-  -webkit-box-shadow: 0 0 16px 0 rgba(249, 179, 199, 0.4);
-          box-shadow: 0 0 16px 0 rgba(249, 179, 199, 0.4);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  border-color: #797270;
-  border-style: outset;
   border-radius: 0.2rem;
-  background: #f9f9f9;
+  background: #2D3047;
+  border: none;
   -webkit-transition: -webkit-box-shadow 0.3s;
   transition: -webkit-box-shadow 0.3s;
   transition: box-shadow 0.3s;
@@ -139,7 +196,15 @@ footer {
     -ms-grid-column: 1;
     -ms-grid-column-span: 16;
     grid-column: 1 / 17;
-    margin: 2rem 0.8rem 3rem;
+  }
+  main .hero .value-prop {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main .hero .value-prop .info-pill {
+    margin: 1rem 0 0;
   }
   main .date {
     -ms-grid-column: 1;

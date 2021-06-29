@@ -1,28 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;600;700;900&display=swap')
 
 $coal: #070707
+$darkPurple: #160F29
 $slate: #7b61ff
 $lightSteelBlue: #BCD3F2
 $ceruleanBlue: #3454D1
 $opaqueCeruleanBlue: rgba(52,84,209,0.5)
-$sonicSilver: #797270
+$sonicSilver: #ccc
 $cultured: #f9f9f9
 
 $roundedCorners: 0.2rem
 
 html, body
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
-  color: $coal
-  background: radial-gradient(to top, rgba(125, 97, 255, 0.4), rgba(7, 7, 7, 1.0)), #070707
+  background: #070707
   padding: 0
-  // background: radial-gradient(rgba(212, 183, 245, 0.4) 0%, #07050533 100%), rgb(255,255,255)
+  // background: radial-gradient(rgba(212, 183, 245, 0.4) 0%, #07050533 100%), #070707
   margin: 0
 h1, h2, h3, h4, h5, h6
   margin: 1rem 0
 h1
-  font-family: 'Noto Serif KR'
+  // font-family: 'Noto Serif KR'
+  font-family: Inter
   color: $cultured
-  font-size: 4rem
+  font-size: 3.2rem
+  letter-spacing: -0.1rem
+  font-weight: 900
+h3
+  // font-family: 'Noto Serif KR'
+  font-family: Inter
+  color: $cultured
+  font-size: 2.4rem
   letter-spacing: -0.1rem
   font-weight: 900
 h4
@@ -37,26 +45,53 @@ main
   display: grid
   grid-template-columns: repeat(16, 1fr)
   .hero
-    grid-column: 5 / 13
+    color: $cultured
+    grid-column: 1 / 17
     text-align: center
-    margin: 2rem 0 3rem
-    h1
-      // color: #fff
+    padding: 1rem 0
+    margin: 0rem 0 3rem
+    .value-prop
+      grid-column: 1 / 9
+      display: flex
+      justify-content: center
+      margin: 0 auto
+      .info-pill
+        align-self: center
+        width: fit-content
+        padding: 0.6rem
+        color: #BCD3F2
+        background: #171A21
+        // border: 1px solid #3BB273
+        border-radius: 0.2rem
+        a
+          color: #BCD3F2
+      .info-pill:nth-of-type(even)
+        margin-left: 1rem
+        margin-right: 1rem
+        height: fit-content
+    .nav-bar-button
+      grid-column: 1
+      width: fit-content
+      height: fit-content
+      padding: 0.8rem 1.6rem
+      border-radius: $roundedCorners
+      background: #171A21
+      margin: 0 auto
   .date
     font-weight: 900
     grid-column: 5 / 13
-    color: $lightSteelBlue
     text-align: center
     margin: 0 0 2rem
   .summary
     grid-column: 5 / 13
     padding: 2rem 2rem 3rem
-    border: 2px solid $coal
     border-radius: $roundedCorners
-    background: $cultured
+    color: #BCD3F2
+    background: #171A21
+    border: 2px solid #3BB273
     margin: 0 0 4rem
     h5.pinned-icon
-      color: $sonicSilver
+      color: #ccc
       font-weight: 400
       margin: 0 0 1rem 
     h4.headline
@@ -72,14 +107,11 @@ main
         line-height: 2rem
         margin: 0
     button
-      color: $coal
+      color: #888
       padding: 1rem 1rem
-      box-shadow: 0 0 16px 0 rgba(249, 179, 199, 0.4)
-      backdrop-filter: blur( 5.0px )
-      border-color: $sonicSilver
-      border-style: outset
       border-radius: $roundedCorners
-      background: $cultured
+      background: #2D3047
+      border: none
       transition: box-shadow 0.3s
       &:hover
         cursor: pointer
@@ -97,7 +129,11 @@ footer
   main
     .hero
       grid-column: 1 / 17
-      margin: 2rem 0.8rem 3rem
+      // margin: 2rem 0.8rem 3rem
+      .value-prop
+        flex-direction: column
+        .info-pill
+          margin: 1rem 0 0
     .date
       grid-column: 1 / 17
       margin: 0 0 1rem
