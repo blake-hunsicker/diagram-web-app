@@ -36,7 +36,7 @@ const Home = () => {
         const trend = doc.data().trend
         const summary = doc.data().summary.replaceAll('- ', '\n - ').replaceAll('* ', '\n - ')
         const title = doc.data().title
-        const timestamp = doc.data().timestamp.toDate().toString()
+        const timestamp = doc.data().timestamp.toDate()
         const momentified = moment(timestamp)
         const formattedDate = momentified.format('MM-D-YY')
         const pinned = doc.data().pinned
