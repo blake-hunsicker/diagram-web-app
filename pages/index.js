@@ -11,14 +11,9 @@ const Home = () => {
   const [articles, setArticles] = useState([])
   const [latestDay, setLatestDay] = useState('')
   const days = []
-  const yesterday = moment().subtract(1, 'days').format('MM-D-y')
-  const today = moment().format('MM-D-y')
   
   useEffect(() => {
     
-    // const trendQuery = fire.firestore().collection('trends').where(fire.firestore.FieldPath.documentId(), '>=', '06-25-2021')
-    const trendQuery = fire.firestore().collection('trends').orderBy('pinned','desc').orderBy('timestamp','desc')
-    // const trendQuery = fire.firestore().collection('trends').limit(5)
     const articleQuery = fire.firestore().collection('articles')
 
     articleQuery.get().then((documentSnapshots) => {
@@ -28,7 +23,6 @@ const Home = () => {
       }))
       setArticles(articles)
     })
-    console.log(articles)
 
   }, [])
 
@@ -43,14 +37,14 @@ const Home = () => {
         const title = doc.data().title
         const timestamp = doc.data().timestamp.toDate()
         const momentified = moment.utc(timestamp)
-        const formattedDate = momentified.format('MM-D-YY')
+        const displayDate = momentified.format('MMMM Do YYYY')
         const pinned = doc.data().pinned
 
-        days.push(formattedDate)
+        days.push(displayDate)
         
-        days[0] == formattedDate ? 
+        days[0] == displayDate ? 
           allSummaries.push(
-            <section className='summary'>
+            <section className='summary' key={id}>
               {pinned ? <h5 className='pinned-icon'><PushPin size={16} weight="fill"/> Developing</h5> : null}
               <h2 className='headline'>{title}</h2>
               <ReactMarkdown>{summary}</ReactMarkdown>
@@ -58,11 +52,11 @@ const Home = () => {
               <div className='context hidden'>
                 <p>Sources</p>
                 <ul>
-                  {articles.map(article =>
+                  {articles.map((article, index) =>
                     article.trend != trend ?
                       null
                     :
-                      <li className='source'>
+                      <li className='source' key={index}>
                         <a href={article.url} target='_blank'>{article.headline.replaceAll('<b>','').replaceAll('</b>','').replaceAll('&#39;',"'")}</a>
                       </li>
                   )}
@@ -75,11 +69,7 @@ const Home = () => {
       })
 
       setSummaries(allSummaries)
-
-      const momentifyDay = moment.utc(days[0].toString())
-      const formattedDay = momentifyDay.format('MMMM Do YYYY')
-      setLatestDay(formattedDay)
-      console.log(formattedDay)
+      setLatestDay(days[0])
   })
 }, [articles])
 
@@ -113,11 +103,9 @@ const Home = () => {
           <p className='info-pill'>5 Minute Reading Time ⚡️</p>
           <p className='info-pill'>Written by journalists and <a href='https://beta.openai.com/'>GPT-3</a> 🤖</p>
         </div>
-        {/* <div className='nav-bar-button'>Sign Up</div> */}
       </section>
       <h3 className='date'>{latestDay}</h3>
       {summaries}
-      {/* <button className='pagination'>Read Yesterday's Stories</button> */}
     </>
   )
 }
