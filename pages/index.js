@@ -97,6 +97,7 @@ const Home = () => {
         <meta name='twitter:description' content='Minimal news summaries.' />
       </Head>
       <section className='hero'>
+        <p>Diagram</p>
         <h1>All the News You Need to Know Today</h1>
         <div className='value-prop'>
           <p className='info-pill'>Today's 3-5 Most Important News Events ☕️</p>

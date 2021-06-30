@@ -53,8 +53,12 @@ main .hero {
   -ms-grid-column-span: 16;
   grid-column: 1 / 17;
   text-align: center;
-  padding: 1rem;
+  padding: 0.8rem 2rem;
   margin: 0rem 0 3rem;
+}
+
+main .hero p {
+  color: #555;
 }
 
 main .value-prop {
