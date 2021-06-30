@@ -127,7 +127,7 @@ main .summary {
   padding: 2rem;
   border-radius: 0.4rem;
   color: #BCD3F2;
-  background: #070707;
+  background: #171A21;
   border: 2px solid #BCD3F2;
   margin: 0 0 4rem;
 }
@@ -181,11 +181,13 @@ main .summary button:hover {
   cursor: pointer;
 }
 
-main .pagination {
+main .end-note {
+  text-align: center;
+  color: #BCD3F2;
   -ms-grid-column: 5;
   -ms-grid-column-span: 8;
   grid-column: 5 / 13;
-  margin: 4rem auto 0;
+  margin: 4rem auto;
 }
 
 footer {
@@ -252,7 +254,7 @@ footer a {
     padding: 2rem 1.5rem 1.5rem;
     margin: 1rem 0.5rem 1.5rem;
   }
-  main .pagination {
+  main .end-note {
     -ms-grid-column: 1;
     -ms-grid-column-span: 16;
     grid-column: 1 / 17;

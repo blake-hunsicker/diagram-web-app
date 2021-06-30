@@ -106,6 +106,10 @@ const Home = () => {
       </section>
       <h4 class='date'>{latestDay}</h4>
       {summaries}
+      <section className='end-note'>
+        <h1>That's it!</h1>
+        <p>Come back tomorrow 👋</p>
+      </section>
     </>
   )
 }
