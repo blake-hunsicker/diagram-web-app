@@ -101,7 +101,7 @@ const Home = () => {
         <h1>All the News You Need to Know Today</h1>
         <div className='value-prop'>
           <p className='info-pill'>{summaries.length} Updates for {latestDay} ⚡️</p>
-          <p className='info-pill'>Written by journalists and <a href='https://beta.openai.com/'>GPT-3</a> 🤖</p>
+          <p className='info-pill'>Written by Journalists and <a href='https://beta.openai.com/'>GPT-3</a> 🤖</p>
         </div>
       </section>
       {/* <h4 class='date'>{latestDay}</h4> */}
