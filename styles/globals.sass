@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;600;700;900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+Pro:wght@400;600;700;900&display=swap')
 
 $coal: #070707
 $darkPurple: #160F29
@@ -14,44 +14,38 @@ $roundedCorners: 0.2rem
 
 html, body
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
-  background: #070707
+  color: $coal
+  background: #EFEFEF
   padding: 0
   margin: 0
 h1, h2, h3, h4, h5, h6
   margin: 1rem 0
 h1
-  // font-family: 'Noto Serif KR'
+  font-family: 'Source Serif Pro', serif
   font-family: Inter
-  color: $cultured
   font-size: 3.2rem
   letter-spacing: -0.1rem
   font-weight: 900
-h2
 h3
   font-family: Inter
-  color: $cultured
   font-size: 2.4rem
   letter-spacing: -0.1rem
   font-weight: 900
 h4
-  color: $cultured
   font-size: 1.2rem
   font-weight: 400
   a
-    color: $cultured
 .hidden
-  display: none
+  background: rgba(0,0,0,0)
 main
   display: grid
   grid-template-columns: repeat(16, 1fr)
   .hero
-    color: $cultured
     grid-column: 1 / 17
     text-align: center
     padding: 0.8rem 2rem
     margin: 0rem 0 3rem
     p
-      color: #555
   .value-prop
     grid-column: 1 / 9
     display: flex
@@ -62,12 +56,12 @@ main
       align-self: center
       width: fit-content
       padding: 0.6rem
-      color: #BCD3F2
-      background: #171A21
+      // color: #BCD3F2
+      // background: #171A21
       // border: 1px solid $lightSteelBlue
       border-radius: 0.2rem
       a
-        color: #BCD3F2
+        // color: #BCD3F2
     .info-pill:nth-of-type(even)
       margin-left: 1rem
       margin-right: 1rem
@@ -86,31 +80,29 @@ main
     text-align: center
     margin: 0 0 2rem
   .summary
+    z-index: 1
     grid-column: 5 / 13
     padding: 2rem
     border-radius: 0.4rem
-    color: $lightSteelBlue
-    background: #171A21
     border: 2px solid $lightSteelBlue
     margin: 0 0 4rem
     h5.pinned-icon
       color: #ccc
       font-weight: 400
       margin: 0 0 1.5rem 
-    .headline
-      color: $cultured
-      font-fize: 2.8rem
-      font-weight: 800 
-    h3
-      font-family: 'Inter'
-      font-weight: 700
+    h2.headline
+      font-family: Inter
+      font-fize: 3.5rem
+      font-weight: 600
     ul
-      padding: 0.6rem 1.2rem
+      padding: 0
       li
+        font-family: 'Source Serif Pro', serif
+        list-style-type: none
         font-weight: 400
-        font-size: 1.25rem
-        line-height: 2rem
-        margin: 0
+        font-size: 1.3rem
+        line-height: 140%
+        margin: 1rem 0
       a
         color: $lightSteelBlue
     button
@@ -123,6 +115,62 @@ main
       transition: box-shadow 0.3s
       &:hover
         cursor: pointer
+  .context-wrapper
+    z-index: 1
+    position: fixed
+    top: 0vh
+    height: 100vh
+    width: 100vw
+    background: rgba(0,0,0,0.7)
+    transition: background 0.4s
+  .context-wrapper.transparent
+    z-index: 0
+    background: rgba(0,0,0,0)
+    transition: background 0.4s
+    transition: z-index 0.5s
+  .context
+    position: fixed
+    top: 10vh
+    height: 90vh
+    width: 100vw
+    box-sizing: border-box
+    overflow-y: scroll
+    background: $cultured
+    border-radius: 1rem 1rem 0 0
+    padding: 1rem
+    transition: top 0.5s
+    button.close
+      right: 0
+      height: 2rem
+      width: 2rem
+      border: none
+      background: gray
+      border-radius: 2rem
+    h4.label
+      font-weight: 700
+    .resources
+      display: grid
+      grid-template-columns: repeat(3, 1fr)
+      padding: 0
+      li.resource
+        grid-column: span 1
+        text-align: center
+        width: 100%
+        list-style-type: none
+        img
+          margin: auto auto
+          width: 5rem
+          height: 5rem
+          border-radius: 3rem
+        h5
+          text-align: center
+          font-weight: 500
+          // width: 5rem
+          line-height: 110%
+          margin: 0
+  .context.hidden
+    top: 100vh
+    transition: top 0.5s
   .end-note
     text-align: center
     color: $lightSteelBlue

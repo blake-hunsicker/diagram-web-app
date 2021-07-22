@@ -9,6 +9,7 @@ import { PushPin } from 'phosphor-react'
 const Home = () => {
   const [summaries, setSummaries] = useState([])
   const [articles, setArticles] = useState([])
+  const [resources, setResources] = useState([])
   const [latestDay, setLatestDay] = useState('')
   const days = []
   
@@ -27,9 +28,24 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
+    
+    const resourceQuery = fire.firestore().collection('resources')
+
+    resourceQuery.get().then((documentSnapshots) => {
+      let resources = documentSnapshots.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+      setResources(resources)
+    })
+
+  }, [])
+
+  useEffect(() => {
     const trendQuery = fire.firestore().collection('trends').where('live','==',true).orderBy('timestamp','desc')
     trendQuery.onSnapshot(snapshot => {
       const allSummaries = []
+      let resourcesList = []
       snapshot.forEach(function(doc) {
         const id = doc.id
         const trend = doc.data().trend
@@ -39,30 +55,51 @@ const Home = () => {
         const momentified = moment.utc(timestamp)
         const displayDate = momentified.format('MMMM Do')
         const pinned = doc.data().pinned
+        const resourcesData = doc.data().resources
 
         days.push(displayDate)
         
         days[0] == displayDate ? 
           allSummaries.push(
-            <section className='summary' key={id}>
-              {pinned ? <h5 className='pinned-icon'><PushPin size={16} weight="fill"/> Developing</h5> : null}
-              <h2 className='headline'>{title}</h2>
-              <ReactMarkdown>{summary}</ReactMarkdown>
-              <button onClick={toggleContext}>View sources</button>
-              <div className='context hidden'>
-                <p>Sources</p>
-                <ul>
-                  {articles.map((article, index) =>
-                    article.trend != trend ?
-                      null
-                    :
-                      <li className='source' key={index}>
-                        <a href={article.url} target='_blank'>{article.headline.replaceAll('<b>','').replaceAll('</b>','').replaceAll('&#39;',"'")}</a>
-                      </li>
-                  )}
-                </ul>
+            <>
+              <section className='summary' key={id}>
+                {pinned ? <h5 className='pinned-icon'><PushPin size={16} weight="fill"/> Developing</h5> : null}
+                <h2 className='headline'>{title}</h2>
+                <ReactMarkdown>{summary}</ReactMarkdown>
+                <button onClick={toggleContext}>View sources</button>
+              </section>
+              <div className='context-wrapper transparent'>
+                <div className='context hidden'>
+                  <button className='close' onClick={closeContext}>Close</button>
+                  <h4 className='label'>People, Places and Events</h4>
+                  <ul className='resources'>
+                    {resources.map((resource, index) =>
+                      resourcesData.map(summaryResource => 
+                        resource.id != summaryResource ?
+                          null
+                        :
+                          <li className='resource'>
+                            <img src={resource.image} />
+                            <h5>{resource.title}</h5>
+                          </li>
+                      )
+                    )}
+                  </ul>
+                  <h4 className='label'>Sources</h4>
+                  <ul>
+                    {articles.map((article, index) =>
+                      article.trend != trend ?
+                        null
+                      :
+                        <li className='source' key={index}>
+                          <a href={article.url} target='_blank'>{article.headline.replaceAll('<b>','').replaceAll('</b>','').replaceAll('&#39;',"'")}</a>
+                        </li>
+                    )}
+                  </ul>
+                </div>
               </div>
-            </section>
+              
+            </>
           )
         :
           null
@@ -70,14 +107,26 @@ const Home = () => {
 
       setSummaries(allSummaries)
       setLatestDay(days[0])
+      allSummaries.map(({summary, i}) => {
+        const number = React.createElement('p', null, i)
+      })
   })
-}, [articles])
+}, [articles, resources])
 
   function toggleContext(e) {
     e.preventDefault();
-    const context = e.currentTarget.nextElementSibling
-    context.classList.toggle('hidden')
-    e.currentTarget.classList.add('hidden')
+    const contextWrapper = e.currentTarget.parentElement.nextSibling
+    contextWrapper.classList.toggle('transparent')
+    contextWrapper.querySelector('.context').classList.toggle('hidden')
+  }
+  function closeContext(e) {
+    e.preventDefault();
+    const contextCard = e.currentTarget.parentElement
+    console.log('context card:')
+    console.log(contextCard)
+    const contextWrapper = contextCard.parentElement
+    contextCard.classList.add('hidden')
+    contextWrapper.classList.add('transparent')
   }
 
   return (
@@ -104,7 +153,6 @@ const Home = () => {
           <p className='info-pill'>Written by Journalists and <a href='https://beta.openai.com/'>GPT-3</a> 🤖</p>
         </div>
       </section>
-      {/* <h4 class='date'>{latestDay}</h4> */}
       {summaries}
       <section className='end-note'>
         <h1>That's it!</h1>

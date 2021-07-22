@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+Pro:wght@400;600;700;900&display=swap");
 html, body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: #070707;
+  color: #070707;
+  background: #EFEFEF;
   padding: 0;
   margin: 0;
 }
@@ -11,8 +12,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  font-family: 'Source Serif Pro', serif;
   font-family: Inter;
-  color: #f9f9f9;
   font-size: 3.2rem;
   letter-spacing: -0.1rem;
   font-weight: 900;
@@ -20,24 +21,18 @@ h1 {
 
 h3 {
   font-family: Inter;
-  color: #f9f9f9;
   font-size: 2.4rem;
   letter-spacing: -0.1rem;
   font-weight: 900;
 }
 
 h4 {
-  color: #f9f9f9;
   font-size: 1.2rem;
   font-weight: 400;
 }
 
-h4 a {
-  color: #f9f9f9;
-}
-
 .hidden {
-  display: none;
+  background: rgba(0, 0, 0, 0);
 }
 
 main {
@@ -48,17 +43,12 @@ main {
 }
 
 main .hero {
-  color: #f9f9f9;
   -ms-grid-column: 1;
   -ms-grid-column-span: 16;
   grid-column: 1 / 17;
   text-align: center;
   padding: 0.8rem 2rem;
   margin: 0rem 0 3rem;
-}
-
-main .hero p {
-  color: #555;
 }
 
 main .value-prop {
@@ -83,13 +73,7 @@ main .value-prop .info-pill {
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.6rem;
-  color: #BCD3F2;
-  background: #171A21;
   border-radius: 0.2rem;
-}
-
-main .value-prop .info-pill a {
-  color: #BCD3F2;
 }
 
 main .value-prop .info-pill:nth-of-type(even) {
@@ -125,13 +109,12 @@ main .date {
 }
 
 main .summary {
+  z-index: 1;
   -ms-grid-column: 5;
   -ms-grid-column-span: 8;
   grid-column: 5 / 13;
   padding: 2rem;
   border-radius: 0.4rem;
-  color: #BCD3F2;
-  background: #171A21;
   border: 2px solid #BCD3F2;
   margin: 0 0 4rem;
 }
@@ -142,26 +125,23 @@ main .summary h5.pinned-icon {
   margin: 0 0 1.5rem;
 }
 
-main .summary .headline {
-  color: #f9f9f9;
-  font-fize: 2.8rem;
-  font-weight: 800;
-}
-
-main .summary h3 {
-  font-family: 'Inter';
-  font-weight: 700;
+main .summary h2.headline {
+  font-family: Inter;
+  font-fize: 3.5rem;
+  font-weight: 600;
 }
 
 main .summary ul {
-  padding: 0.6rem 1.2rem;
+  padding: 0;
 }
 
 main .summary ul li {
+  font-family: 'Source Serif Pro', serif;
+  list-style-type: none;
   font-weight: 400;
-  font-size: 1.25rem;
-  line-height: 2rem;
-  margin: 0;
+  font-size: 1.3rem;
+  line-height: 140%;
+  margin: 1rem 0;
 }
 
 main .summary ul a {
@@ -183,6 +163,89 @@ main .summary button {
 
 main .summary button:hover {
   cursor: pointer;
+}
+
+main .context-wrapper {
+  z-index: 1;
+  position: fixed;
+  top: 0vh;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-transition: background 0.4s;
+  transition: background 0.4s;
+}
+
+main .context-wrapper.transparent {
+  z-index: 0;
+  background: rgba(0, 0, 0, 0);
+  -webkit-transition: background 0.4s;
+  transition: background 0.4s;
+  -webkit-transition: z-index 0.5s;
+  transition: z-index 0.5s;
+}
+
+main .context {
+  position: fixed;
+  top: 10vh;
+  height: 90vh;
+  width: 100vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-y: scroll;
+  background: #f9f9f9;
+  border-radius: 1rem 1rem 0 0;
+  padding: 1rem;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
+}
+
+main .context button.close {
+  right: 0;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  background: gray;
+  border-radius: 2rem;
+}
+
+main .context h4.label {
+  font-weight: 700;
+}
+
+main .context .resources {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  padding: 0;
+}
+
+main .context .resources li.resource {
+  grid-column: span 1;
+  text-align: center;
+  width: 100%;
+  list-style-type: none;
+}
+
+main .context .resources li.resource img {
+  margin: auto auto;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 3rem;
+}
+
+main .context .resources li.resource h5 {
+  text-align: center;
+  font-weight: 500;
+  line-height: 110%;
+  margin: 0;
+}
+
+main .context.hidden {
+  top: 100vh;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
 }
 
 main .end-note {
