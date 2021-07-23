@@ -280,8 +280,8 @@ footer a {
     border-radius: 2rem;
   }
   main .context h4.label {
-    font-size: 1rem;
-    font-weight: 700;
+    color: #555;
+    font-weight: 400;
     margin: 2rem 0;
   }
   main .context .resources {
