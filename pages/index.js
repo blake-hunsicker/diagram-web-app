@@ -80,7 +80,10 @@ const Home = () => {
                         :
                           <li className='resource'>
                             <img src={resource.image} />
-                            <h4>{resource.title}</h4>
+                            <div className='text'>
+                              <h4>{resource.title}</h4>
+                              <h5>{resource.tagline}</h5>
+                            </div>
                           </li>
                       )
                     )}

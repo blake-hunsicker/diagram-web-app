@@ -307,16 +307,20 @@ footer a {
     margin: 0 0 1rem;
   }
   main .context .resources li.resource img {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 3rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 2.75rem;
     margin-right: 1rem;
   }
-  main .context .resources li.resource h4 {
+  main .context .resources li.resource div.text h4 {
     font-size: 1.2rem;
     font-weight: 700;
     line-height: 110%;
     margin: 0.5rem 0 0;
+  }
+  main .context .resources li.resource div.text h5 {
+    color: #777;
+    font-weight: 400;
   }
   main .context .sources {
     margin: 0;
