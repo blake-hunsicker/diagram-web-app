@@ -3,7 +3,7 @@ import fire from '../config/fire-config'
 import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 import moment from 'moment'
-import { PushPin } from 'phosphor-react'
+import { PushPin, X } from 'phosphor-react'
 
 
 const Home = () => {
@@ -70,7 +70,7 @@ const Home = () => {
               </section>
               <div className='context-wrapper transparent'>
                 <div className='context hidden'>
-                  <button className='close' onClick={closeContext}>Close</button>
+                  <button className='close' onClick={closeContext}><X size={20} weight="bold" /></button>
                   <h4 className='label'>People, Places and Events</h4>
                   <ul className='resources'>
                     {resources.map((resource, index) =>
@@ -80,13 +80,13 @@ const Home = () => {
                         :
                           <li className='resource'>
                             <img src={resource.image} />
-                            <h5>{resource.title}</h5>
+                            <h4>{resource.title}</h4>
                           </li>
                       )
                     )}
                   </ul>
                   <h4 className='label'>Sources</h4>
-                  <ul>
+                  <ul className='sources'>
                     {articles.map((article, index) =>
                       article.trend != trend ?
                         null

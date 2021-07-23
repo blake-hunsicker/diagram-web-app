@@ -115,62 +115,6 @@ main
       transition: box-shadow 0.3s
       &:hover
         cursor: pointer
-  .context-wrapper
-    z-index: 1
-    position: fixed
-    top: 0vh
-    height: 100vh
-    width: 100vw
-    background: rgba(0,0,0,0.7)
-    transition: background 0.4s
-  .context-wrapper.transparent
-    z-index: 0
-    background: rgba(0,0,0,0)
-    transition: background 0.4s
-    transition: z-index 0.5s
-  .context
-    position: fixed
-    top: 10vh
-    height: 90vh
-    width: 100vw
-    box-sizing: border-box
-    overflow-y: scroll
-    background: $cultured
-    border-radius: 1rem 1rem 0 0
-    padding: 1rem
-    transition: top 0.5s
-    button.close
-      right: 0
-      height: 2rem
-      width: 2rem
-      border: none
-      background: gray
-      border-radius: 2rem
-    h4.label
-      font-weight: 700
-    .resources
-      display: grid
-      grid-template-columns: repeat(3, 1fr)
-      padding: 0
-      li.resource
-        grid-column: span 1
-        text-align: center
-        width: 100%
-        list-style-type: none
-        img
-          margin: auto auto
-          width: 5rem
-          height: 5rem
-          border-radius: 3rem
-        h5
-          text-align: center
-          font-weight: 500
-          // width: 5rem
-          line-height: 110%
-          margin: 0
-  .context.hidden
-    top: 100vh
-    transition: top 0.5s
   .end-note
     text-align: center
     color: $lightSteelBlue
@@ -237,34 +181,57 @@ footer
       padding: 1rem
       transition: top 0.5s
       button.close
-        right: 0
+        position: absolute
+        right: 1rem
         height: 2rem
         width: 2rem
         border: none
-        background: gray
+        background: #efefef
         border-radius: 2rem
       h4.label
+        font-size: 1rem
         font-weight: 700
+        margin: 2rem 0
       .resources
-        display: grid
-        grid-template-columns: repeat(3, 1fr)
+        // display: grid
+        // grid-template-columns: repeat(3, 1fr)
         padding: 0
+        margin: 0 0 4rem
         li.resource
-          grid-column: span 1
-          text-align: center
-          width: 100%
+          // grid-column: span 1
+          // text-align: center
+          display: flex
+          flex-direction: row
+          justify-content: flex-start
+          // width: 100%
           list-style-type: none
+          padding: 1rem
+          background: #efefef
+          border-radius: 0.4rem
+          margin: 0 0 1rem
           img
-            margin: auto auto
+            // margin: auto auto
             width: 5rem
             height: 5rem
             border-radius: 3rem
-          h5
-            text-align: center
-            font-weight: 500
+            margin-right: 1rem
+          h4
+            // text-align: center
+            font-size: 1.2rem
+            font-weight: 700
             // width: 5rem
             line-height: 110%
-            margin: 0
+            margin: 0.5rem 0 0
+      .sources
+        margin: 0
+        padding: 0
+        li.source
+          font-family: 'Source Serif Pro', serif
+          font-size: 1.2rem
+          list-style-type: none
+          margin: 0 0 1rem
+          a
+            color: $coal
     .context.hidden
       top: 100vh
       transition: top 0.5s
