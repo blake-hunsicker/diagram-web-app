@@ -71,7 +71,7 @@ const Home = () => {
               <div className='context-wrapper transparent'>
                 <div className='context hidden'>
                   <button className='close' onClick={closeContext}><X size={20} weight="bold" /></button>
-                  <h4 className='label'>People, Places and Events</h4>
+                  <h4 className='label'>PEOPLE, PLACES, EVENTS</h4>
                   <ul className='resources'>
                     {resources.map((resource, index) =>
                       resourcesData.map(summaryResource => 
@@ -85,7 +85,7 @@ const Home = () => {
                       )
                     )}
                   </ul>
-                  <h4 className='label'>Sources</h4>
+                  <h4 className='label'>SOURCES</h4>
                   <ul className='sources'>
                     {articles.map((article, index) =>
                       article.trend != trend ?
